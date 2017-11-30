@@ -59,12 +59,12 @@ describe('timestamp', function() {
   });
 
   it('should increment zero-based month:', function() {
-    var expected = String(new Date().getMonth() + 1);
+    var expected = String(new Date().getUTCMonth() + 1);
     assert.equal(timestamp('MM'), pad(expected, 2, '0'));
   });
 
   it('should not increment one-based methods:', function() {
-    var expected = String(new Date().getFullYear());
+    var expected = String(new Date().getUTCFullYear());
     assert.equal(timestamp('YYYY'), pad(expected, 4, '0'));
   });
 });

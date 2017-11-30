@@ -43,14 +43,14 @@ module.exports = function(pattern, date) {
 
 function method(key) {
   return ({
-    YYYY: ['getFullYear', 4],
-    YY: ['getFullYear', 2],
+    YYYY: ['getUTCFullYear', 4],
+    YY: ['getUTCFullYear', 2],
     // getMonth is zero-based, thus the extra increment field
-    MM: ['getMonth', 2, 1],
-    DD: ['getDate', 2],
-    HH: ['getHours', 2],
-    mm: ['getMinutes', 2],
-    ss: ['getSeconds', 2],
-    ms: ['getMilliseconds', 3]
+    MM: ['getUTCMonth', 2, 1],
+    DD: ['getUTCDate', 2],
+    HH: ['getUTCHours', 2],
+    mm: ['getUTCMinutes', 2],
+    ss: ['getUTCSeconds', 2],
+    ms: ['getUTCMilliseconds', 3]
   })[key];
 }

@@ -32,30 +32,45 @@ describe('timestamp', function() {
 
   it('should return the year:', function() {
     assert(/^\d{4}$/.test(timestamp('YYYY')));
+    assert(/^\d{4}$/.test(timestamp('YYYY', true)));
   });
 
   it('should return the month:', function() {
     assert(/^\d{2}$/.test(timestamp('MM')));
+    assert(/^\d{2}$/.test(timestamp('MM', true)));
   });
 
   it('should return the day:', function() {
     assert(/^\d{2}$/.test(timestamp('DD')));
+    assert(/^\d{2}$/.test(timestamp('DD', true)));
   });
 
   it('should return hours:', function() {
     assert(/^\d{2}$/.test(timestamp('HH')));
+    assert(/^\d{2}$/.test(timestamp('HH', true)));
   });
 
   it('should return minutes:', function() {
     assert(/^\d{2}$/.test(timestamp('mm')));
+    assert(/^\d{2}$/.test(timestamp('mm', true)));
   });
 
   it('should return seconds:', function() {
     assert(/^\d{2}$/.test(timestamp('ss')));
+    assert(/^\d{2}$/.test(timestamp('ss', true)));
   });
 
   it('should return miliseconds:', function() {
     assert(/^\d{3}$/.test(timestamp('ms')));
+    assert(/^\d{3}$/.test(timestamp('ms', true)));
+  });
+
+  it('should allow a date argument:', function() {
+    var date = new Date('1995-12-17T03:24:00');
+    assert.equal(timestamp('MM', date), '12');
+    assert.equal(timestamp('MM', date, true), '12');
+    assert.equal(timestamp('YY', date), '95');
+    assert.equal(timestamp('YY', date, true), '95');
   });
 
   it('should increment zero-based month:', function() {
